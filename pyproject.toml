@@ -20,9 +20,9 @@ classifiers     = [
 ]
 
 [project.urls]
-"Homepage"      = "https://github.com/dknowles2/pydrawise"
-"Source Code"   = "https://github.com/dknowles2/pydrawise"
-"Bug Reports"   = "https://github.com/dknowles2/pydrawise/issues"
+"Homepage"      = "https://github.com/drsmarsden/pydrawise"
+"Source Code"   = "https://github.com/drsmarsden/pydrawise"
+"Bug Reports"   = "https://github.com/drsmarsden/pydrawise/issues"
 
 [tool.setuptools]
 platforms            = ["any"]
