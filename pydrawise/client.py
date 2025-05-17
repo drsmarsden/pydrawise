@@ -31,7 +31,7 @@ from .schema import (
 from .schema_utils import deserialize, get_selectors
 
 # GQL is quite chatty in logs by default.
-gql_log.setLevel(logging.ERROR)
+gql_log.setLevel(logging.INFO)
 
 
 def _prune_watering_report_entries(
