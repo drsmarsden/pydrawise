@@ -88,11 +88,22 @@ class HybridClient(HydrawiseBase):
         self._user: User | None = None
         self._controllers: dict[int, Controller] = {}
         self._zones: dict[int, Zone] = {}
-        if gql_throttle is None:
-            gql_throttle = Throttler(
-                epoch_interval=timedelta(minutes=30), tokens_per_epoch=5
-            )
-        self._gql_throttle: Throttler = gql_throttle
+        
+#        if gql_throttle is None:
+#            gql_throttle = Throttler(
+#                epoch_interval=timedelta(minutes=30), tokens_per_epoch=5
+#            )
+#        self._gql_throttle: Throttler = gql_throttle
+
+# Disable throttling for Enthusiast users
+        class NoThrottle:
+           def check(self, tokens: int = 1) -> bool:
+              return True
+           def mark(self) -> None:
+              pass
+
+        self._gql_throttle: Throttler = NoThrottle()
+
         if rest_throttle is None:
             rest_throttle = Throttler(
                 epoch_interval=timedelta(minutes=1), tokens_per_epoch=2
